@@ -1,0 +1,8 @@
+<templateSet group="mine">
+  <template name="ass" value="Assertions.assertThat($OBJ$)$END$" description="Assertions.assertThat()" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="OBJ" expression="typeOfVariable(&quot;Object&quot;)" defaultValue="var" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>
