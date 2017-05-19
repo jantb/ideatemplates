@@ -1,8 +1,31 @@
 <templateSet group="java">
-  <template name="ass" value="Assertions.assertThat($OBJ$)$END$" description="Assertions.assertThat()" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+  <template name="ass" value="org.assertj.core.api.Assertions.assertThat($OBJ$.$OBJ2$).$OBJ3$$END$" description="Assertions.assertThat()" toReformat="true" toShortenFQNames="true" useStaticImport="true">
     <variable name="OBJ" expression="suggestFirstVariableName(&quot;Object&quot;)" defaultValue="var" alwaysStopAt="true" />
+    <variable name="OBJ2" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="OBJ3" expression="complete()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_STATEMENT" value="true" />
     </context>
   </template>
-</templateSet>k
+  <template name="with" value="public Builder with$CAP_ID$($TYPE$ $ID$) {&#10;            this.$ID$ = $ID$;&#10;            return this;&#10;}" description="builder pattern" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="ID" expression="suggestFirstVariableName(&quot;Object&quot;)" defaultValue="var" alwaysStopAt="true" />
+    <variable name="TYPE" expression="typeOfVariable(ID)" defaultValue="Object" alwaysStopAt="false" />
+    <variable name="CAP_ID" expression="capitalize(ID)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="val" value="Validate.notBlank($VAR$, &quot;$VAR$ må fylles ut&quot;);" description="valider at fylles ut" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="suggestFirstVariableName(&quot;Object&quot;)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="coll" value="List&lt;$TYPE$&gt; $VARIABLE$Liste = new ArrayList&lt;&gt;();$END$&#10;$VARIABLE$Liste.add($VARIABLE$);&#10;" description="Collect to ArrayList()" toReformat="false" toShortenFQNames="true">
+    <variable name="VARIABLE" expression="suggestFirstVariableName(&quot;Object&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="typeOfVariable(VARIABLE)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>
